@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { DashboardShell } from "@/Component/DashboardShell";
+import { Providers } from "./providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,7 +26,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${inter.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full" suppressHydrationWarning>
-        <DashboardShell>{children}</DashboardShell>
+        <Providers>
+          <DashboardShell>{children}</DashboardShell>
+        </Providers>
       </body>
     </html>
   );
